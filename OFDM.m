@@ -15,7 +15,7 @@ debug = 1;
 Fs = 256;
 Ts = 1/Fs;
 
-SNR = -10;
+SNR = 10;
 n = 0:Ts:1-Ts;
 signal = sin(2*pi*1*n);
 noisySignal = noiseGeneration(signal, SNR);
