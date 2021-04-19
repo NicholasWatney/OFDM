@@ -60,3 +60,4 @@ function noisySignal = noiseGeneration(signal, SNR)
         fprintf("SNR ratio: %f\n", snr(signal, noise));
     end
 end
+jk
