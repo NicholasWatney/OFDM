@@ -6,12 +6,12 @@
 
 clear; clc; close all;
 
-len = 2^20;
+len = 1024;
 channels = 8;
 SNR = 50;
 BER = OFDM_(len, channels, SNR);
 
-SNRs = [-100:1/2:50];
+SNRs = [-50:1/10:50];
 BERs = [];
 figure();
 hold on;
@@ -19,7 +19,7 @@ for i = SNRs
     BER = OFDM_(len, channels, i);
     BERs = [BERs, BER];
 end
-stem(SNRs, log10(BERs));
+stem(SNRs, BERS);
 hold off;
 
 function BER = OFDM_(len, channels, SNR)

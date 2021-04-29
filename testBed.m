@@ -1,5 +1,5 @@
 
-
+%% SNR GENERATION
 clc; close all; clc;
 
 Fs = 100;
@@ -20,3 +20,27 @@ for i = 1:10
     stem(x_n(i,:));
     stem(noisySignal(i,:));
 end
+
+%%
+clear; clc; close all;
+
+len = 16;
+N = 1; 
+SNR = 1;
+
+rng default;
+bits = dataGeneration(len);
+symbols = encode(bits);
+transmit = ifft(symbols, len * N);
+noisySignal = noiseGeneration(transmit, -5);
+received = fft(noisySignal, len * N);
+
+figure();
+hold on;
+stem(transmit);
+stem(noisySignal);
+
+figure();
+hold on;
+stem(symbols(1:len));
+stem(received(1:len));
